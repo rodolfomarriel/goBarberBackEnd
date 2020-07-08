@@ -3,9 +3,6 @@ import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 export default class CreateAppointments1587776690708
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    // this ensure we can use default: `uuid_generate_v4()`
-    // await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-
     await queryRunner.createTable(
       new Table({
         name: 'appointments',
@@ -15,7 +12,7 @@ export default class CreateAppointments1587776690708
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
+            default: 'gen_random_uuid()',
           },
           {
             name: 'provider',
