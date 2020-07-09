@@ -32,7 +32,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}
-        source: "dist"
+        source: "."
         target: "test"
     
     # Substituir o código existente na pasta "dist" pelo novo código 
